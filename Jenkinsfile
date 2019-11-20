@@ -1,6 +1,6 @@
 node {
 stage ('SCM checkout'){
-git “https://github.com/mromantigue/SNowGitIntegrationDemo”
+git "https://github.com/mromantigue/SNowGitIntegrationDemo"
 }
 stage ('Build'){
 dir("mavenproject1") {
