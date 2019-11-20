@@ -4,10 +4,10 @@ git "https://github.com/mromantigue/SNowGitIntegrationDemo"
 }
 stage ('Build'){
 dir("mavenproject1") {
-sh "mvn clean install"
+bat "mvn clean install"
 }
 dir("mavenproject1/target") {
-sh "java -jar mavenproject1-1.0-SNAPSHOT.jar"
+bat "java -jar mavenproject1-1.0-SNAPSHOT.jar"
 }
 }
 }
