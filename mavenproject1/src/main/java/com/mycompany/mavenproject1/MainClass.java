@@ -49,7 +49,7 @@ public class MainClass {
     WebElement loginButton = driver.findElement(By.id("sysverb_login"));
 
     username.sendKeys("admin");
-    password.sendKeys("bow7FdsCFPP7");
+    password.sendKeys("muZk9PZOl1kN");
     loginButton.click();
     
     driver.navigate().to(driver.getCurrentUrl());
