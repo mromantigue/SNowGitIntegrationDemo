@@ -24,5 +24,6 @@ def jsonSlurper = new JsonSlurper()
 def createResponse = jsonSlurper.parseText(response.content)
 def sysId = createResponse.result.sys_id
 def changeNumber = createResponse.result.number
+println "Successfully created new CHANGE RECORD: " + changeNumber
 }
 }
