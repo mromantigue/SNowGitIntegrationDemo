@@ -48,6 +48,7 @@ public class MainClass {
     WebElement password = driver.findElement(By.id("user_password"));
     WebElement loginButton = driver.findElement(By.id("sysverb_login"));
 
+    System.out.println("Logging into : "+appTitle);
     username.sendKeys("admin");
     password.sendKeys("muZk9PZOl1kN");
     loginButton.click();
@@ -63,9 +64,10 @@ public class MainClass {
     });
     
     WebElement filter = driver.findElement(By.id("filter"));
+    System.out.println("Navigating to Maintain Items module...");
     filter.sendKeys("Maintain Items");
     filter.sendKeys(Keys.ENTER);
-    
+    System.out.println("Checking if pages in this module are reachable");
     driver.navigate().to("https://dev86178.service-now.com/nav_to.do?uri=%2Fsc_cat_item_producer.do%3Fsys_id%3D3a25637b47701100ba13a5554ee490a0%26sysparm_record_target%3Dsc_cat_item%26sysparm_record_row%3D1%26sysparm_record_rows%3D143%26sysparm_record_list%3Dtype%2521%253Dbundle%255Esys_class_name%2521%253Dsc_cat_item_guide%255Etype%2521%253Dpackage%255Esys_class_name%2521%253Dsc_cat_item_content%255Esc_catalogs%253DNULL%255EORsc_catalogsDOES%2BNOT%2BCONTAIN0b22fd2ad7021100b9a5c7400e610319%255EORDERBYorder");
     
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
