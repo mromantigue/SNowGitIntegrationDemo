@@ -30,7 +30,7 @@ public class MainClass {
     WebDriverManager.getInstance(CHROME).setup();
     WebDriver driver = new ChromeDriver();
 
-    driver.navigate().to("https://dev86178.service-now.com/login.do");
+    driver.navigate().to("https://dev70481.service-now.com/login.do");
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     String appTitle = driver.getTitle();
 
