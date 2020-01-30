@@ -30,7 +30,7 @@ public class MainClass {
     WebDriverManager.getInstance(CHROME).setup();
     WebDriver driver = new ChromeDriver();
 
-    driver.navigate().to("https://dev70481.service-now.com/login.do");
+    driver.navigate().to("https://dev60689.service-now.com/login.do");
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     String appTitle = driver.getTitle();
 
@@ -50,7 +50,7 @@ public class MainClass {
 
     System.out.println("Logging into : "+appTitle);
     username.sendKeys("admin");
-    password.sendKeys("muZk9PZOl1kN");
+    password.sendKeys("uySoU5s7OVzK");
     loginButton.click();
     
     driver.navigate().to(driver.getCurrentUrl());
