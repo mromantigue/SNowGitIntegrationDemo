@@ -26,6 +26,6 @@ bat "java -jar mavenproject1-1.0-SNAPSHOT.jar"
 stage ('Release'){
 println "STAGE: RELEASE"
 println "Approving change request"
-println "Successfully moved updates to PROD"
+println "Successfully moved the updates to PROD"
 }
 }
