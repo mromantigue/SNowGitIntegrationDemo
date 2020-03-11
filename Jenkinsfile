@@ -25,7 +25,12 @@ bat "java -jar mavenproject1-1.0-SNAPSHOT.jar"
 }
 stage ('Release'){
 println "STAGE: RELEASE"
-println "Approving change request"
+println "Approving change request. The change request is now in Implement state."
+def messageJson = new JSONObject()
+messageJson.putAll([
+                state: '5'
+        ])
+def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev71415'], credentialsId: 'jenkins-vault', serviceNowItem: [table: 'change_request', sysId: sysId, body: messageJson.toString()], vaultConfiguration: [url: 'http://localhost:8080/', path: 'credentials/store/system/domain/_/']
 println "Successfully moved the updates to PROD"
 }
 }
