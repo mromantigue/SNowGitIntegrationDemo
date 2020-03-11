@@ -1,4 +1,3 @@
-import groovy.json.JsonSlurper
 import groovy.json.*
 node {
 stage ('Code'){
