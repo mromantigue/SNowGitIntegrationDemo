@@ -6,7 +6,7 @@ println "Checking out repository..."
 git "https://github.com/mromantigue/SNowGitIntegrationDemo"
 filename = getChangedFilesList()
 println filename
-if(filename.indexOf('-') >= 0 && filename.indexOf('.') >= 0){
+if(filename.contains('-') && filename.contains('.')){
     println filename.substring(filename.indexOf('-'), filename.indexOf('.'))
 }
 dir("mavenproject1") {
