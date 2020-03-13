@@ -5,8 +5,9 @@ println "STAGE: CODE"
 println "Checking out repository..."
 git "https://github.com/mromantigue/SNowGitIntegrationDemo"
 files[] = getChangedFilesList()
-println files[0]
-println str.substring(str.indexOf("-"), str.indexOf("."));
+filename = files[0].toString()
+println filename
+println filename.substring(filename.indexOf("-"), filename.indexOf("."));
 dir("mavenproject1") {
 println "Initializing test script..."
 bat "mvn clean install"
