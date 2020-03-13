@@ -4,7 +4,7 @@ stage ('Code'){
 println "STAGE: CODE"
 println "Checking out repository..."
 git "https://github.com/mromantigue/SNowGitIntegrationDemo"
-String[] files = getChangedFilesList()
+files = getChangedFilesList()
 println files[0]
 println files[0].substring(files[0].indexOf("-"), files[0].indexOf("."))
 dir("mavenproject1") {
