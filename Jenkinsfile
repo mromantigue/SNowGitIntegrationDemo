@@ -4,7 +4,8 @@ stage ('Code'){
 println "STAGE: CODE"
 println "Checking out repository..."
 git "https://github.com/mromantigue/SNowGitIntegrationDemo"
-files = getChangedFilesList()
+files = []
+files.addAll(getChangedFilesList())
 println files.get(0)
 println files.get(0).substring(files.get(0).indexOf("-"), files.get(0).indexOf("."))
 dir("mavenproject1") {
@@ -42,7 +43,7 @@ String getChangedFilesList() {
     for (changeLogSet in currentBuild.changeSets) { 
         for (entry in changeLogSet.getItems()) { // for each commit in the detected changes
             for (file in entry.getAffectedFiles()) {
-                changedFiles.add(file.getPath().toString()) // add changed file to list
+                changedFiles.add(file.getPath()) // add changed file to list
             }
         }
     }
