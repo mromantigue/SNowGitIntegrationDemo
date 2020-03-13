@@ -4,6 +4,7 @@ stage ('Code'){
 println "STAGE: CODE"
 println "Checking out repository..."
 git "https://github.com/mromantigue/SNowGitIntegrationDemo"
+println getChangedFilesList()
 dir("mavenproject1") {
 println "Initializing test script..."
 bat "mvn clean install"
@@ -29,4 +30,21 @@ println "Approving change request. The change request is now in Implement state.
 def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev71415'], credentialsId: 'jenkins-vault', serviceNowItem: [table: 'change_request', sysId: sysId, body: '{"state":"-1"}'], vaultConfiguration: [url: 'http://localhost:8080/', path: 'credentials/store/system/domain/_/']
 println "Successfully moved the updates to PROD"
 }
+}
+
+// returns a list of changed files
+@NonCPS
+String getChangedFilesList() {
+
+    changedFiles = []
+    for (changeLogSet in currentBuild.changeSets) { 
+        for (entry in changeLogSet.getItems()) { // for each commit in the detected changes
+            for (file in entry.getAffectedFiles()) {
+                changedFiles.add(file.getPath()) // add changed file to list
+            }
+        }
+    }
+
+    return changedFiles
+
 }
