@@ -26,7 +26,7 @@ bat "java -jar mavenproject1-1.0-SNAPSHOT.jar"
 stage ('Release'){
 println "STAGE: RELEASE"
 println "Approving change request. The change request is now in Implement state."
-def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev71415'], credentialsId: 'jenkins-vault', serviceNowItem: [table: 'change_request', sysId: sysId, body: "[state: '5']"], vaultConfiguration: [url: 'http://localhost:8080/', path: 'credentials/store/system/domain/_/']
+def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev71415'], credentialsId: 'jenkins-vault', serviceNowItem: [table: 'change_request', sysId: sysId, body: "[state: '-1']"], vaultConfiguration: [url: 'http://localhost:8080/', path: 'credentials/store/system/domain/_/']
 println "Successfully moved the updates to PROD"
 }
 }
