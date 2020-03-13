@@ -7,7 +7,7 @@ git "https://github.com/mromantigue/SNowGitIntegrationDemo"
 filename = getChangedFilesList()
 println filename
 if(filename.contains('-') && filename.contains('.')){
-    println filename.substring(filename.indexOf('-'), filename.indexOf('.'))
+    println filename.substring(filename.indexOf('-') + 1, filename.indexOf('.'))
 }
 dir("mavenproject1") {
 println "Initializing test script..."
