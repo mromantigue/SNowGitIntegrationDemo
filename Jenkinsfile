@@ -4,10 +4,9 @@ stage ('Code'){
 println "STAGE: CODE"
 println "Checking out repository..."
 git "https://github.com/mromantigue/SNowGitIntegrationDemo"
-files = []
-files.addAll(getChangedFilesList())
-println files.get(0)
-println files.get(0).substring(files.get(0).indexOf("-"), files.get(0).indexOf("."))
+filename = getChangedFilesList()
+println filename
+println filename.substring(filename.indexOf("-"), filename.indexOf("."))
 dir("mavenproject1") {
 println "Initializing test script..."
 bat "mvn clean install"
