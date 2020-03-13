@@ -6,7 +6,9 @@ println "Checking out repository..."
 git "https://github.com/mromantigue/SNowGitIntegrationDemo"
 filename = getChangedFilesList()
 println filename
-println filename.substring(filename.indexOf("-"), filename.indexOf("."))
+if(filename.indexOf('-') >= 0 && filename.indexOf('.') >= 0){
+    println filename.substring(filename.indexOf('-'), filename.indexOf('.'))
+}
 dir("mavenproject1") {
 println "Initializing test script..."
 bat "mvn clean install"
