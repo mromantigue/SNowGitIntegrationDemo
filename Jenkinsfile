@@ -11,7 +11,7 @@ if(filename.contains('-') && filename.contains('.')){
 }
 dir("mavenproject1") {
 println "Initializing test script..."
-bat "mvn clean install"
+bat "mvn install"
 println "Creating new change record for movement to Production..."
 def response = serviceNow_createChange serviceNowConfiguration: [instance: 'dev71415', producerId: 'ac6faea8db130010bbc253184b9619fa'], credentialsId: 'jenkins-vault', vaultConfiguration: [url: 'http://localhost:8080/', path: 'credentials/store/system/domain/_/']
 def jsonSlurper = new JsonSlurper()
